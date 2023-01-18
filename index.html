@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sorting Visualizer</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <!-- CSS only -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar dark-background">
+        <a class="navbar-brand text-color" href="#">Sorting Visualizer</a>
+    
+    </nav>
+
+
+        <div class="col-auto center navlist" id="control-panel">
+            <div class="btn-group-md">
+                <button type="button" class="btn btn-outline-light bubbleSort" onclick=
+                "displayContent(event, 'bubblesort')">Bubble Sort</button>
+                <button type="button" class="btn btn-outline-light mergeSort" onclick=
+                "displayContent(event, 'mergesort')">Merge Sort</button>
+            </div>
+            <div class="btn-group-md">
+                <button type="button" class="btn btn-outline-light selectionSort" onclick=
+                "displayContent(event, 'selectionsort')">Selection Sort</button>
+                <button type="button" class="btn btn-outline-light quickSort" onclick=
+                "displayContent(event, 'quicksort')">Quick Sort</button>
+            </div>
+            <div class="btn-group-md">
+                <button type="button" class="btn btn-outline-light insertionSort" onclick=
+                "displayContent(event, 'insertionsort')">Insertion Sort</button>
+                <button type="button" class="btn btn-outline-light heapSort" onclick=
+                "displayContent(event, 'heapsort')">Heap Sort</button>
+            </div>
+        </div>
+ 
+  
+    <!-- Content for each HTML tab  -->
+    <div id="bubblesort" class="contentClass">
+        <h3>Bubble Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+         <ul>
+
+           <li>             Run a nested for loop to traverse the input array using two variables i and j, such that 0 ≤ i < n-1 and 0 ≤ j < n-i-1</li>
+<li> 
+    If arr[j] is greater than arr[j+1] then swap these adjacent elements, else move on
+     </li>
+<li> Print the sorted array </li>
+         </ul>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+  
+    <div id="insertionsort" class="contentClass">
+        <h3>Insertion Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+         <ul>
+           <li> Iterate from arr[1] to arr[N] over the array. </li>
+<li> Compare the current element (key) to its predecessor. </li>
+<li> If the key element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped element. </li>
+         </ul>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+  
+
+
+    <div id="mergesort" class="contentClass">
+        <h3>Merge Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+         <ul>
+           <li>   step 1: start </li>
+<li>     step 2: declare array and left, right, mid variable</li>
+<li>    step 3: perform merge function.
+    if left > right
+        return
+    mid= (left+right)/2
+    mergesort(array, left, mid)
+    mergesort(array, mid+1, right)
+    merge(array, left, mid, right)</li>
+    <li>
+    step 4: Stop
+    </li>
+         </ul>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+
+    <div id="quicksort" class="contentClass">
+        <h3>Quick Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+                <pre>
+                Pseudo Code for recursive QuickSort function:
+
+                /* low  –> Starting index,  high  –> Ending index */
+                
+                
+                
+                quickSort(arr[], low, high) {
+                
+                    if (low < high) {
+                
+                        /* pi is partitioning index, arr[pi] is now at right place */
+                
+                        pi = partition(arr, low, high);
+                
+                        quickSort(arr, low, pi – 1);  // Before pi
+                
+                        quickSort(arr, pi + 1, high); // After pi
+                
+                    }
+                
+                }
+                
+                Pseudo code for partition()  
+                
+                /* This function takes last element as pivot, places the pivot element at its correct position in sorted array, and places
+                 all smaller (smaller than pivot) to left of pivot and all greater elements to right of pivot */
+                
+                partition (arr[], low, high)
+                {
+                    // pivot (Element to be placed at right position)
+                    pivot = arr[high];  
+                
+                    i = (low – 1)  // Index of smaller element and indicates the 
+                    // right position of pivot found so far
+                
+                    for (j = low; j <= high- 1; j++){
+                
+                        // If current element is smaller than the pivot
+                        if (arr[j] < pivot){
+                            i++;    // increment index of smaller element
+                            swap arr[i] and arr[j]
+                        }
+                    }
+                    swap arr[i + 1] and arr[high])
+                    return (i + 1)
+                }
+            </pre>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+
+
+    <div id="selectionsort" class="contentClass">
+        <h3>Selection Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+         <ul>
+<li> Initialize minimum value(min_idx) to location 0.</li>
+<li>Traverse the array to find the minimum element in the array.</li>
+<li>While traversing if any element smaller than min_idx is found then swap both the values.</li>
+<li>
+    Then, increment min_idx to point to the next element.</li>
+    <li>
+        Repeat until the array is sorted.</li>
+         </ul>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+
+   
+    <div id="heapsort" class="contentClass">
+        <h3>Heap Sort</h3>
+  
+        <p>
+            <div class="content">
+            <div class="theory">
+         <ul>
+          
+
+
+<li>   Build a max heap from the input data. </li>
+<li>At this point, the maximum element is stored at the root of the heap. Replace it with the last item of the heap followed by reducing the size of the heap by 1. Finally, heapify the root of the tree. li>
+<li>Repeat step 2 while the size of the heap is greater than 1.</li>
+
+ 
+         </ul>
+         </div>
+
+         </div>
+        </p>
+  
+    </div>
+
+
+    <div id="sorting" class="flex-container">
+        
+    </div>
+
+    <div class="col range-input" id="input-panel">
+        <span id="size" class = "label">Size
+            <input id ="size_input" type="range" value=50 min="1" max="100" style="margin-left: 60px;">
+        </span>
+        <span id="speed" class = "label">Speed
+            <input id="speed_input" type="range" min="20" max="300" value=60 style="margin-left: 60px;">
+        </span>
+    </div>
+
+    <div class="btn-group-md btn-group-horizontal center" style="margin-bottom: 15px;">
+        <button type="button" class="btn btn-outline-success new" style="margin-right: 5px;">New Array</button>
+        <button type="button" class="btn btn-outline-danger stop" style="margin-left: 5px;" disabled="true">Stop Sorting</button>
+    </div>
+ 
+
+    <footer>
+        <div class="footer">
+        <div>
+        Made By Sushant Dhuria
+        </div>
+        <div> Source Code <a href=""> <i class="fas fa-github"></i> </a></div>
+    </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="sorting.js" async defer></script>
+    <script src="algorithms/bubbleSort.js" async defer></script>
+    <script src="algorithms/mergeSort.js" async defer></script>
+    <script src="algorithms/selectionSort.js" async defer></script>
+    <script src="algorithms/quickSort.js" async defer></script>
+    <script src="algorithms/insertionSort.js" async defer></script>
+    <script src="algorithms/heapSort.js" async defer></script>
+</body>
+
+</html>
